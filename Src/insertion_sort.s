@@ -18,8 +18,8 @@
 @ (c) ECE NUS, 2023
 @ Insertion sort arr in ascending order
 
-@ Write Student 1’s Name here:
-@ Write Student 2’s Name here:
+@ Write Student 1’s Name here: Chua Zhong Heng
+@ Write Student 2’s Name here: Dexter Hoon
 
 @ You could create a look-up table of registers here:
 
@@ -28,11 +28,11 @@
 
 @ write your program from here:
 insertion_sort:
-	@PUSH {R14}
+	PUSH {R14}
 
 	BL SUBROUTINE
 
-	@POP {R14}
+	POP {R14}
 	BX LR
 
 SUBROUTINE:
