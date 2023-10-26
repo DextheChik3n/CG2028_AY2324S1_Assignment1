@@ -18,8 +18,8 @@
 @ (c) ECE NUS, 2023
 @ Insertion sort arr in ascending order
 
-@ Write Student 1’s Name here: Chua Zhong Heng
-@ Write Student 2’s Name here: Dexter Hoon
+@ Write Student 1’s Name here: Dexter Hoon
+@ Write Student 2’s Name here: Chua Zhong Heng
 
 @ You could create a look-up table of registers here:
 
