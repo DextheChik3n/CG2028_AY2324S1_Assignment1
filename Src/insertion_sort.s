@@ -23,18 +23,21 @@
 
 @ You could create a look-up table of registers here:
 
-@ R0 ...
-@ R1 ...
+@ R0 memory location of the arr, to store number of swaps at the end
+@ R1 no. of numbers in the array
 @ R14	Link Register
 
 @ write your program from here:
+
+
 insertion_sort:
-	PUSH {R14}
+	PUSH {R14} @ Important: to store the address of the instruction in C file
 
-	BL SUBROUTINE
+	LDR R0, A
 
-	POP {R14}
+	POP {R14}  @ Important: to refer back to the address of the instruction in C file
 
 SUBROUTINE:
-
 	BX LR
+
+A:	.word	100
