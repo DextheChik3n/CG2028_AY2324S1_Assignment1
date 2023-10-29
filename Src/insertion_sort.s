@@ -21,19 +21,23 @@
 @ Write Student 1’s Name here: Dexter Hoon
 @ Write Student 2’s Name here: Chua Zhong Heng
 
-@ You could create a look-up table of registers here:
+@ -Look-up table of registers-
 
-@ R0 ...
-@ R1 ...
+@ Initialization of insertion_sort:
+@ R0 Memory Location of arr
+@ R1 No. of numbers in the array
+
+
+@ End of inseriton_sort:
+@ R0 No. of swaps
 
 @ write your program from here:
 insertion_sort:
-	PUSH {R14}
+	PUSH {R14} @ Store the address of insertion_sort instruction in main.c
 
 	BL SUBROUTINE
 
-	POP {R14}
-	BX LR
+	POP {R15} @ Assign PC the instruction address to return to main.c
 
 SUBROUTINE:
 
