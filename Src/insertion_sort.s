@@ -25,6 +25,7 @@
 
 @ R0 ...
 @ R1 ...
+@ R14	Link Register
 
 @ write your program from here:
 insertion_sort:
@@ -33,7 +34,6 @@ insertion_sort:
 	BL SUBROUTINE
 
 	POP {R14}
-	BX LR
 
 SUBROUTINE:
 
