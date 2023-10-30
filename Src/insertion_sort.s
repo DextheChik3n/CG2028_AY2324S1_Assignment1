@@ -25,7 +25,7 @@
 
 @ Initialization of insertion_sort:
 @ R0: Memory Location of arr
-@ R1: No. of numbers in the array
+@ R1: No. of numbers in the array, M
 @ R2: i index (holds memory address)
 @ R3: key value
 @ R4: j index (holds memory address)
@@ -38,8 +38,8 @@
 @ write your program from here:
 insertion_sort:
 	PUSH {R4-R11, R14} 	 @ Store the address of insertion_sort instruction in main.c
-	MOV R6, #0
-	LSL R1, #2			 @ Set N integer to *4
+	MOV R6, #0			 @ Initialize the swap counter to 0
+	LSL R1, #2			 @ Set M integer to *4
 	MOV R2, #0			 @ Bit-shift left by 2, *4
 	ADD R2, #4	 		 @ Set i to index 1
 
