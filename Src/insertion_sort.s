@@ -33,14 +33,18 @@
 @ R6: swap counter
 
 @ End of inseriton_sort:
-@ R0 No. of swaps
+@ R0: No. of swaps
 
 @ write your program from here:
 insertion_sort:
 	PUSH {R4-R11, R14} 	 @ Store the address of insertion_sort instruction in main.c
 	MOV R6, #0			 @ Initialize the swap counter to 0
+
+    CMP R1, #2			 @ Guard clause to check if array size < 2
+    BLT done
+
 	LSL R1, #2			 @ Set M integer to *4
-	MOV R2, #0			 @ Bit-shift left by 2, *4
+	MOV R2, #0			 @ Initialize i index to 0
 	ADD R2, #4	 		 @ Set i to index 1
 
 outer_for_loop:
@@ -49,27 +53,26 @@ outer_for_loop:
 
 inner_while_loop:
 	CMP R4, #0 			 @ Check if beginning of array is reached
-	BLT inner_while_done
+	BLT inner_while_done @ if j < 0, exit inner while loop
 
 	LDR R5, [R0, R4]     @ Load j value into R5
 	CMP R3, R5			 @ Compare key value and j value
 	BGE inner_while_done @ if the key >= j value, exit inner loop
 
-	ADD R4, #4
+	ADD R4, #4		     @ Set j to j + 1
 	STR R5, [R0, R4] 	 @ Shift j value one position to the right in array
 	ADD R6, #1		     @ Increment swap counter
-	SUB R4, #8			 @ Update j index (memory address pointer)
+	SUB R4, #8			 @ Update j index to the index of the next (left) sorted element
 	B inner_while_loop
 
 inner_while_done:
 	ADD R4, #4			@ Set j to j + 1
 	STR R3, [R0, R4]	@ Store key into arr[j + 1]
 	ADD R2, #4			@ i++
-	CMP R2, R1			@if(i < n)
-	BLT outer_for_loop 	@Loop if true
-
+	CMP R2, R1			@ if (i < n)
+	BLT outer_for_loop 	@ Loop if true
 
 done:
-	MOV R0, R6
+	MOV R0, R6			@ To return swap value back to main.c
 	POP {R4-R11, R15} 	@ Assign PC the instruction address to return to main.c
 
