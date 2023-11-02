@@ -18,8 +18,8 @@
 @ (c) ECE NUS, 2023
 @ Insertion sort arr in ascending order
 
-@ Write Student 1’s Name here: Dexter Hoon
-@ Write Student 2’s Name here: Chua Zhong Heng
+@ Write Student 1’s Name here: Dexter Hoon, A0235166E
+@ Write Student 2’s Name here: Chua Zhong Heng, A0253320W
 
 @ -Look-up table of registers-
 
